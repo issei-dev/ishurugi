@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // モバイルメニューのトグル機能
+    // モバイルメニューのトグル機能1
     const menuToggle = document.querySelector('.menu-toggle');
     const globalNav = document.querySelector('.global-nav');
 
