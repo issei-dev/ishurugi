@@ -1,0 +1,34 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // モバイルメニューのトグル機能
+    const menuToggle = document.querySelector('.menu-toggle');
+    const globalNav = document.querySelector('.global-nav');
+
+    menuToggle.addEventListener('click', () => {
+        const isVisible = globalNav.style.display === 'block';
+        globalNav.style.display = isVisible ? 'none' : 'block';
+        
+        // モバイルナビゲーション表示時の簡単なスタイル調整
+        if (!isVisible) {
+            globalNav.style.position = 'absolute';
+            globalNav.style.top = '100%';
+            globalNav.style.left = '0';
+            globalNav.style.width = '100%';
+            globalNav.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            globalNav.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+            globalNav.style.padding = '20px';
+            
+            const navList = globalNav.querySelector('.nav-list');
+            navList.style.flexDirection = 'column';
+            navList.style.gap = '20px';
+        } else {
+            globalNav.style = ''; // リセット
+        }
+    });
+
+    // リサイズ時のモバイルメニューリセット
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            globalNav.style = '';
+        }
+    });
+});
