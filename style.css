@@ -1,0 +1,303 @@
+/* 基本設定とリセット1 */
+:root {
+    --primary-color: #e3000f; /* トヨタのような赤のアクセント */
+    --text-color: #333333;
+    --bg-light: #f5f5f5;
+    --lax-gold: #c5a059;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', Meiryo, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a, button {
+    /* iPadなどのタッチデバイスでの操作性を向上 */
+    touch-action: manipulation;
+    text-decoration: none;
+}
+
+/* ヘッダー */
+.global-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #ddd;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.logo a {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+.global-nav .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.global-nav a {
+    color: var(--text-color);
+    font-weight: bold;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.global-nav a:hover {
+    color: var(--primary-color);
+}
+
+.global-nav a.lax-brand {
+    color: var(--lax-gold);
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+}
+
+/* セクション共通 */
+.section-padding {
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+.bg-light {
+    background-color: var(--bg-light);
+}
+
+/* ヒーローバナー */
+.hero {
+    margin-top: 60px; /* ヘッダーの高さ分 */
+    height: 70vh;
+    background-color: #333;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* 本来はここに車の画像を背景として指定 */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&q=80&w=1200') no-repeat center center/cover;
+}
+
+.slide-content {
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.slide-content h2 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.slide-content p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* ボタン */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #cc0000;
+}
+
+.btn-outline {
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--text-color);
+    color: #fff;
+}
+
+.center-action {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* ラインナップ (Grid) */
+.car-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+.car-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.car-card:hover {
+    transform: translateY(-5px);
+}
+
+.car-image {
+    height: 120px;
+    background-color: #ddd;
+    margin-bottom: 15px;
+    border-radius: 4px;
+}
+
+/* プレースホルダー色（実際は車の画像を設定） */
+.placeholder-suv { background: #5c6bc0; }
+.placeholder-suv2 { background: #3949ab; }
+.placeholder-sedan { background: #424242; }
+.placeholder-minivan { background: #8d6e63; }
+.placeholder-sports { background: #e53935; }
+
+.car-name {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.car-type {
+    font-size: 12px;
+    color: #666;
+}
+
+/* ニュース */
+.news-list {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.news-list li {
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.news-list .date {
+    font-size: 14px;
+    color: #666;
+}
+
+.news-list .category {
+    font-size: 12px;
+    padding: 4px 12px;
+    color: #fff;
+    border-radius: 2px;
+    min-width: 60px;
+    text-align: center;
+}
+
+.category.corporate { background-color: #333; }
+.category.product { background-color: var(--primary-color); }
+.category.ir { background-color: #0066cc; }
+
+.news-list a {
+    color: var(--text-color);
+    flex: 1;
+}
+
+.news-list a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* フッター */
+.global-footer {
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-links {
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #fff;
+    margin: 0 15px;
+    font-size: 14px;
+}
+
+.copyright {
+    font-size: 12px;
+    color: #999;
+}
+
+/* レスポンシブ対応 (iPad・スマホ向け) */
+@media (max-width: 768px) {
+    .global-nav {
+        display: none; /* シンプルにするためモバイルメニューはJSで制御前提 */
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+
+    .slide-content h2 {
+        font-size: 32px;
+    }
+
+    .news-list li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
